@@ -4,12 +4,7 @@ uuidv4()
 // load data
 const loadSavedData = () => {
   const notesJSON = localStorage.getItem('notes')
-
-  if (notesJSON !== null) {
-    return JSON.parse(notesJSON)
-  } else {
-    return []
-  }
+  return notesJSON !== null ? JSON.parse(notesJSON) : []
 }
 
 // save data
