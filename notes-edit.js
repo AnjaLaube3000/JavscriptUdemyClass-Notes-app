@@ -15,10 +15,6 @@ titleElement.value = note.title
 bodyElement.value = note.body
 editElement.textContent = lastEditedMessage(note.updatedAt)
 
-//add updatedAt Element
-
-
-
 // setup input event for title
 titleElement.addEventListener('input', (e) => {
   e.preventDefault()
@@ -27,7 +23,6 @@ titleElement.addEventListener('input', (e) => {
   // editElement.textContent = lastEditedMessage(note.updatedAt)
   saveData(notes)
 })
-
 
 // setup input event for body
 bodyElement.addEventListener('input', (e) => {

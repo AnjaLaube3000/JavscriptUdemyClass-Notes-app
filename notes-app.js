@@ -34,11 +34,6 @@ document.querySelector('#create-note').addEventListener('click', (e) => {
   renderedNotes(notes, filters)
 })
 
-document.querySelector('#search-text').addEventListener('input', (e) => {
-  filters.searchText = e.target.value
-  renderedNotes(notes, filters)
-})
-
 // drowpdown menu
 document.querySelector('#sorting-option').addEventListener('change', (e) => {
   filters.sortBy = e.target.value
