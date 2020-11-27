@@ -3,17 +3,25 @@
   <head></head>
   <body>
     <h1>Her you can edit your note</h1>
-    <a href="/index.html">Return to main page</a>
-    <div id="updated-at">
+    <a href='/index.html'>Return to main page</a>
+    <div>
+      <label for="title">Note Title</label>
+      <input id='title' type="text" placeholder='type title here'>
     </div>
     <div>
-      <label for="title">Title</label>
-      <input type="text" id='title' placeholder='type title here'>
-    </div>
-    <div>
-      <label for="body-text" >Body</label>
+      <label for="body">Note Text</label>
       <textarea id='body-text' placeholder='type note here'></textarea>
     </div>
+
+    <div>
+      <span id='updated-at'></span>
+    </div>
+
     <button id='remove-note'>Delete note</button>
+
+    <script src="uuidv4.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+    <script src="notes-function.js"></script>
+    <script src="notes-edit.js"></script>
   </body>
 </html>
