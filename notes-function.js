@@ -4,7 +4,7 @@ uuidv4()
 // load data
 const loadSavedData = () => {
   const notesJSON = localStorage.getItem('notes')
-  return notesJSON !== null ? JSON.parse(notesJSON) : []
+  return notesJSON ? JSON.parse(notesJSON) : []
 }
 
 // save data
@@ -88,7 +88,7 @@ const generateNoteDOM = (note) => {
   })
 
   // set up title
-  if (note.title.length > 0) {
+  if (note.title.length) {
     textElement.textContent = note.title
   } else {
     textElement.textContent = 'Untitled'
