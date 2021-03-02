@@ -1,27 +1,32 @@
 <!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <title>Notes App</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="icon" href="/images/favicon.png">
+  </head>
   <body>
-    <h1>Her you can edit your note</h1>
-    <a href='/index.html'>Return to main page</a>
-    <div>
-      <label for="title">Note Title</label>
-      <input id='title' type="text" placeholder='type title here'>
+    <div class="header">
+      <div class="container">
+        <h1 class="header__title">This a my notes app</h1>
+        <h2 class="header__subtitle">Save notes to relax your memory muscle</h2>
+      </div>
     </div>
-    <div>
-      <label for="body">Note Text</label>
-      <textarea id='body-text' placeholder='type note here'></textarea>
+    <div class="actions">
+      <div class="actions__container actions__container--spaced">
+        <a href='/index.html'>Home</a>
+        <span id='updated-at'></span>
+      </div>
+    </div>
+    <div class="container">
+      <input id='title' class="title-input" type="text" placeholder='type title here'>
+      <textarea id='body-text' class="body-input" placeholder='type note here'></textarea>
+      <button id='remove-note' class="button button--secondary">Delete note</button>
     </div>
 
-    <div>
-      <span id='updated-at'></span>
-    </div>
-
-    <button id='remove-note'>Delete note</button>
-
-    <script src="uuidv4.js"></script>
+    <script src="/scripts/uuidv4.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
-    <script src="notes-function.js"></script>
-    <script src="notes-edit.js"></script>
+    <script src="/scripts/notes-function.js"></script>
+    <script src="/scripts/notes-edit.js"></script>
   </body>
 </html>

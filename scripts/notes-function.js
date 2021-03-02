@@ -52,14 +52,22 @@ const sortNotes = (notes, sortBy) => {
 
 //render all notes
 const renderedNotes = (notes, filters) => {
+  const notesEl = document.querySelector('#notes')
   notes = sortNotes(notes, filters.sortBy)
   let filteredNotes = notes.filter((note) => note.title.toLowerCase().includes(filters.searchText.toLowerCase()))
 
-  document.querySelector('#notes').innerHTML = ''
+  notesEl.innerHTML = ''
 
-  filteredNotes.forEach((note)  => {
-    document.querySelector('#notes').appendChild(generateNoteDOM(note))
-  })
+  if (filteredNotes.length > 0) {
+    filteredNotes.forEach((note)  => {
+      notesEl.appendChild(generateNoteDOM(note))
+    })
+  } else {
+    const emptyMessage = document.createElement("p")
+    emptyMessage.textContent = "No notes yet."
+    emptyMessage.classList.add("empty-message")
+    notesEl.appendChild(emptyMessage)
+  }
 }
 
 // remove item from list of notes via index
@@ -72,20 +80,9 @@ const removeNote = (id) => {
 
 // generate the DOM structure for a note
 const generateNoteDOM = (note) => {
-  let p = document.createElement('div')
+  let p = document.createElement('a')
   const textElement = document.createElement('a')
-  const button = document.createElement('button')
-  // const createdAt = document.createElement('span')
-  // let updatedAt = document.createElement('span')
-
-  // set up remove button
-  button.textContent = 'x'
-  p.appendChild(button)
-  button.addEventListener('click', () => {
-    removeNote(note.id)
-    saveData(notes)
-    renderedNotes(notes, filters)
-  })
+  const statusEl = document.createElement("p")
 
   // set up title
   if (note.title.length) {
@@ -93,16 +90,17 @@ const generateNoteDOM = (note) => {
   } else {
     textElement.textContent = 'Untitled'
   }
-  textElement.setAttribute('href', `/edit.html#${note.id}`)
+  textElement.classList.add('list-item__title')
   p.appendChild(textElement)
 
-  // //created at
-  // createdAt.textContent = `Note created at ${note.createdAt}`
-  // p.appendChild(createdAt)
+  // Setup the link
+  p.setAttribute('href', `/edit.html#${note.id}`)
+  p.classList.add('list-item')
 
-  // //updated at
-  // updatedAt.textContent = `Last edited at ${note.updatedAt}`
-  // p.appendChild(updatedAt)
+  // Setup status message
+  statusEl.textContent = lastEditedMessage(note.updatedAt)
+  statusEl.classList.add('list-item__subtitle')
+  p.appendChild(statusEl)
 
   return p
 }
