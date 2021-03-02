@@ -75,8 +75,6 @@ const generateNoteDOM = (note) => {
   let p = document.createElement('div')
   const textElement = document.createElement('a')
   const button = document.createElement('button')
-  // const createdAt = document.createElement('span')
-  // let updatedAt = document.createElement('span')
 
   // set up remove button
   button.textContent = 'x'
@@ -96,17 +94,8 @@ const generateNoteDOM = (note) => {
   textElement.setAttribute('href', `/edit.html#${note.id}`)
   p.appendChild(textElement)
 
-  // //created at
-  // createdAt.textContent = `Note created at ${note.createdAt}`
-  // p.appendChild(createdAt)
-
-  // //updated at
-  // updatedAt.textContent = `Last edited at ${note.updatedAt}`
-  // p.appendChild(updatedAt)
-
   return p
 }
-
 
 // generate Last Edited Message
 const lastEditedMessage = (timestamp) => `Last edited ${moment(timestamp).fromNow()}`
