@@ -82,16 +82,16 @@ const removeNote = (id) => {
 const generateNoteDOM = (note) => {
   let p = document.createElement('a')
   const textElement = document.createElement('a')
-  const button = document.createElement('button')
+  // const button = document.createElement('button')
 
-  // set up remove button
-  button.textContent = 'x'
-  p.appendChild(button)
-  button.addEventListener('click', () => {
-    removeNote(note.id)
-    saveData(notes)
-    renderedNotes(notes, filters)
-  })
+  // // set up remove button
+  // button.textContent = 'x'
+  // p.appendChild(button)
+  // button.addEventListener('click', () => {
+  //   removeNote(note.id)
+  //   saveData(notes)
+  //   renderedNotes(notes, filters)
+  // })
   const statusEl = document.createElement("p")
 
   // set up title
